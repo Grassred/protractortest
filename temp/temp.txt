@@ -1,0 +1,8 @@
+{"name": "ProtractorTest",
+  "version": "0.0.1",
+  "main": "conf.js",
+  "scripts": {
+    "setup": "npm install && node node_modules/protractor/bin/webdriver-manager update",
+    "e2e-start": "node node_modules/protractor/bin/webdriver-manager start",
+    "test": "protractor protractor.conf.js"
+  }
