@@ -20,6 +20,9 @@ exports.config = {
     capabilities: {
       // browserName: 'chrome'
       browserName: 'firefox',
+      firefoxOptions: {
+        args: ['--headless']
+      }
       
     },
   
@@ -31,5 +34,14 @@ exports.config = {
         print: function () {},
       showColors: true // Use colors in the command line report.
     
-    }
+    },
+    framework: 'jasmine2',
+onPrepare: function() {
+    var jasmineReporters = require('jasmine-reporters');
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+        consolidateAll: true,
+        savePath: 'testresults',
+        filePrefix: 'xmloutput'
+    }));
+}
   }
